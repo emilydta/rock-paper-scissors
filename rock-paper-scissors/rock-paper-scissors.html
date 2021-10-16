@@ -27,36 +27,22 @@
         playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
         console.log("You: " + playerSelection);
 
-        if (playerSelection == "Rock" && computerSelection == "Paper") { 
-            ++computerScore;
-            return `You Lose! ${computerSelection} beats ${playerSelection}!` 
-
-        } else if (playerSelection == "Scissors" && computerSelection == "Rock") { 
-            ++computerScore;
-            return `You Lose! ${computerSelection} beats ${playerSelection}!`;
-
-        } else if (playerSelection == "Paper" && computerSelection == "Scissors") {
-            ++computerScore;
-            return `You Lose! ${computerSelection} beats ${playerSelection}!`;
-
-        } else if (playerSelection == "Scissors" && computerSelection == "Paper") {
-            ++playerScore;
-            return `You Win! ${playerSelection} beats ${computerSelection}!`;
-
-        } else if (playerSelection == "Paper" && computerSelection == "Rock") {
-            ++playerScore;
-            return `You Win! ${playerSelection} beats ${computerSelection}!`;
-
-        } else if (playerSelection == "Rock" && computerSelection == "Scissors") {
-            ++playerScore;
-            return `You Win! ${playerSelection} beats ${computerSelection}!`;
-
+        if (!optionsArray.includes(playerSelection)) {
+            return "Error. You did not choose Rock, Paper, or Scissors.";
         } else if (playerSelection == computerSelection) {
             return "It's a tie!";
+        }
 
-        } else if (!optionsArray.includes(playerSelection)) {
-            return "Error. You did not choose Rock, Paper, or Scissors.";
-
+        const playerWins = (playerSelection == "Rock" && computerSelection == "Scissors")
+                           || (playerSelection == "Paper" && computerSelection == "Rock")
+                           || (playerSelection == "Scissors" && computerSelection == "Paper");
+        
+        if (playerWins) {
+            ++playerScore;
+            return `You Win! ${playerSelection} beats ${computerSelection}!`;
+        } else {
+            ++computerScore;
+            return `You Lose! ${computerSelection} beats ${playerSelection}!`;
         }
     }
 
