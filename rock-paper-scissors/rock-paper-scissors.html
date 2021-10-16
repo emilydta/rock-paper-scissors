@@ -26,30 +26,30 @@
             ++computerScore;
             return `You Lose! ${computerSelection} beats ${playerSelection}!` 
 
-        }   else if (playerSelection == "Scissors" && computerSelection == "Rock") { 
+        } else if (playerSelection == "Scissors" && computerSelection == "Rock") { 
             ++computerScore;
             return `You Lose! ${computerSelection} beats ${playerSelection}!`;
 
-        }   else if (playerSelection == "Paper" && computerSelection == "Scissors") {
+        } else if (playerSelection == "Paper" && computerSelection == "Scissors") {
             ++computerScore;
             return `You Lose! ${computerSelection} beats ${playerSelection}!`;
 
-        }   else if (playerSelection == "Scissors" && computerSelection == "Paper") {
+        } else if (playerSelection == "Scissors" && computerSelection == "Paper") {
             ++playerScore;
             return `You Win! ${playerSelection} beats ${computerSelection}!`;
 
-        }   else if (playerSelection == "Paper" && computerSelection == "Rock") {
+        } else if (playerSelection == "Paper" && computerSelection == "Rock") {
             ++playerScore;
             return `You Win! ${playerSelection} beats ${computerSelection}!`;
 
-        }   else if (playerSelection == "Rock" && computerSelection == "Scissors") {
+        } else if (playerSelection == "Rock" && computerSelection == "Scissors") {
             ++playerScore;
             return `You Win! ${playerSelection} beats ${computerSelection}!`;
 
-        }   else if (playerSelection == computerSelection) {
+        } else if (playerSelection == computerSelection) {
             return "It's a tie!";
 
-        }   else if (playerSelection != "Scissors" || "Rock" || "Paper") {
+        } else if (playerSelection != "Scissors" || "Rock" || "Paper") {
             return "Error. You did not choose Rock, Paper, or Scissors.";
         }
     }
@@ -57,7 +57,7 @@
     function game() {
 
         let i = 1;
-        while (i<=5) {
+        while (i <= 5) {
             let userInput = prompt("Rock, Paper, or Scissors?");
             console.log(playRound(userInput));
             console.log("Computer: " + computerScore);
