@@ -18,7 +18,7 @@
     }
 
     function computerPlay() {
-        let computerResult = chooseRandomElement(optionsArray);
+        const computerResult = chooseRandomElement(optionsArray);
         console.log("Computer: " + computerResult);
         return computerResult;  
     }
@@ -49,7 +49,7 @@
     function game() {
         let i = 1;
         while (i <= 5) {
-            let userInput = prompt("Rock, Paper, or Scissors?");
+            const userInput = prompt("Rock, Paper, or Scissors?");
             console.log(playRound(userInput));
             console.log("Computer: " + computerScore);
             console.log("You: " + playerScore);
