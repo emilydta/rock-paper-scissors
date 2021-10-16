@@ -10,9 +10,10 @@
       
     let playerScore = 0;
     let computerScore = 0;
+    
+    const optionsArray = ["Rock", "Paper", "Scissors"];
 
     function computerPlay() {
-        const optionsArray = ["Rock", "Paper", "Scissors"];
         let computerResult = optionsArray[Math.floor(Math.random() * optionsArray.length)];
         console.log("Computer: " + computerResult);
         return computerResult;  
@@ -49,8 +50,9 @@
         } else if (playerSelection == computerSelection) {
             return "It's a tie!";
 
-        } else if (playerSelection != "Scissors" || "Rock" || "Paper") {
+        } else if (!optionsArray.includes(playerSelection)) {
             return "Error. You did not choose Rock, Paper, or Scissors.";
+
         }
     }
 
