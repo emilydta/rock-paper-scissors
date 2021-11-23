@@ -35,18 +35,19 @@ function computerPlay() {
 }
 
 function playRound(playerSelection, computerSelection = computerPlay()) {
-    console.log("You: " + playerSelection);
 
     if (!optionsArray.includes(playerSelection)) {
         resultMessage.innerText = "Error. You did not choose Rock, Paper, or Scissors.";
-        return "Error. You did not choose Rock, Paper, or Scissors.";
+        return;
+
     } else if (playerSelection == computerSelection) {
+
         resultMessage.innerText = "It's a tie!";
         playerScoreHeading.classList.remove("score-color");
         playerScoreNumber.classList.remove("score-color");
         computerScoreHeading.classList.remove("score-color");
         computerScoreNumber.classList.remove("score-color");
-        return "It's a tie!";
+        return;
     }
 
     const playerWins = (playerSelection == "Rock" && computerSelection == "Scissors")
@@ -62,13 +63,8 @@ function playRound(playerSelection, computerSelection = computerPlay()) {
         computerScoreHeading.classList.remove("score-color");
         computerScoreNumber.classList.remove("score-color");
 
-        document.getElementsByClassName(middle);
-
         resultMessage.innerText = `You Win! ${playerSelection} beats ${computerSelection}!`;
-        
-
-        
-        return `You Win! ${playerSelection} beats ${computerSelection}!`;
+        return;
         
     } else {
 
@@ -83,8 +79,7 @@ function playRound(playerSelection, computerSelection = computerPlay()) {
         playerScoreNumber.classList.remove("score-color");
 
         resultMessage.innerText = `You Lose! ${computerSelection} beats ${playerSelection}!`;
-        
-        return `You Lose! ${computerSelection} beats ${playerSelection}!`;
+        return;
     }
 }
 
