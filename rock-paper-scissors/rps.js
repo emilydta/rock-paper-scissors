@@ -31,7 +31,7 @@ function chooseRandomElement(arr) {
 function computerPlay() {
     const computerResult = chooseRandomElement(optionsArray);
     console.log("Computer: " + computerResult);
-    return computerResult;  
+    return;  
 }
 
 function playRound(playerSelection, computerSelection = computerPlay()) {
