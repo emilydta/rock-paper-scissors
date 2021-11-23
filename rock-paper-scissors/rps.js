@@ -14,7 +14,6 @@ function computerPlay() {
 }
 
 function playRound(playerSelection, computerSelection = computerPlay()) {
-    playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
     console.log("You: " + playerSelection);
 
     if (!optionsArray.includes(playerSelection)) {
@@ -47,3 +46,13 @@ function playRound(playerSelection, computerSelection = computerPlay()) {
     }
     return "END";
 }**/
+
+const rock = document.querySelector('#rock');
+rock.addEventListener('click', () => playRound("Rock", computerPlay()));
+
+const paper = document.querySelector('#paper');
+paper.addEventListener('click', () => playRound("Paper", computerPlay()));
+
+
+const scissors = document.querySelector('#scissors');
+scissors.addEventListener('click', () => playRound("Scissors", computerPlay()));
