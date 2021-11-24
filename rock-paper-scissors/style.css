@@ -40,6 +40,7 @@ h2 {
     color: white;
     border: solid 2px white;
     border-radius: 20px;
+    cursor: pointer;
 }
 
 #rock:hover, #paper:hover, #scissors:hover {
@@ -67,4 +68,5 @@ h2 {
     font-weight: bold;
     font-size: 20px;
     margin-top: 20px;
+    cursor: pointer;
 }
