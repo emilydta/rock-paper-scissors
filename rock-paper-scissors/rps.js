@@ -7,6 +7,8 @@ const computerScoreNumber = document.querySelector('#computer-score-number');
 const playerScoreHeading = document.querySelector('#player-score-heading');
 const playerScoreNumber = document.querySelector('#player-score-number');
 
+const heading = document.querySelector('#heading');
+const chooseOneHeading = document.querySelector('#choose-one-heading');
 
 const rock = document.querySelector('#rock');
 rock.addEventListener('click', () => playRound("Rock", computerPlay()));
@@ -21,6 +23,7 @@ const resultMessage = document.createElement('p');
 resultMessage.setAttribute("id", "result-message");
 middle.appendChild(resultMessage);
 
+const buttons = document.querySelector('#buttons');
 
 const playAgainButton = document.createElement('button');
 playAgainButton.setAttribute("id", "play-again-button");
@@ -52,16 +55,29 @@ function gameReset() {
     playerScoreNumber.classList.remove("score-color");
     computerScoreHeading.classList.remove("score-color");
     computerScoreNumber.classList.remove("score-color");
+
+    buttons.append(rock);
+    buttons.append(paper);
+    buttons.append(scissors);
+    heading.append(chooseOneHeading);
 }
 
 function game() {
     if  (playerScore == 5 && playerScore > computerScore) {
         resultMessage.innerText = "Congratulations, you beat the Computer!";
         middle.appendChild(playAgainButton);
+        chooseOneHeading.remove();
+        rock.remove();
+        paper.remove();
+        scissors.remove();
     
     } else if (computerScore == 5 && playerScore < computerScore) {
         resultMessage.innerText = "Sorry! You lost to the Computer!";
         middle.appendChild(playAgainButton);
+        chooseOneHeading.remove();
+        rock.remove();
+        paper.remove();
+        scissors.remove();
     }
 }
 
