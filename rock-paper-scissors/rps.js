@@ -21,6 +21,13 @@ const resultMessage = document.createElement('p');
 resultMessage.setAttribute("id", "result-message");
 middle.appendChild(resultMessage);
 
+const playAgainButton = document.createElement('button');
+playAgainButton.setAttribute("id", "play-again-button");
+playAgainButton.innerText = ("Play Again");
+
+playAgainButton.addEventListener("click", () => gameReset());
+
+
 
 const optionsArray = ["Rock", "Paper", "Scissors"];
 
@@ -33,7 +40,34 @@ function computerPlay() {
     return computerResult;  
 }
 
+function gameReset() {
+    playAgainButton.remove();
+    playerScore = 0;
+    computerScore = 0;
+    playerScoreNumber.innerText = `${playerScore}`;
+    computerScoreNumber.innerText = `${computerScore}`;
+
+    resultMessage.innerText = "";
+    playerScoreHeading.classList.remove("score-color");
+    playerScoreNumber.classList.remove("score-color");
+    computerScoreHeading.classList.remove("score-color");
+    computerScoreNumber.classList.remove("score-color");
+}
+
+function game() {
+    if  (playerScore == 5 && playerScore > computerScore) {
+        resultMessage.innerText = "Congratulations, you beat the Computer!";
+        middle.appendChild(playAgainButton);
+    
+    } else if (computerScore == 5 && playerScore < computerScore) {
+        resultMessage.innerText = "Sorry! You lost to the Computer!";
+        middle.appendChild(playAgainButton);
+    }
+}
+
 function playRound(playerSelection, computerSelection = computerPlay()) {
+
+    
 
     if (!optionsArray.includes(playerSelection)) {
         resultMessage.innerText = "Error. You did not choose Rock, Paper, or Scissors.";
@@ -46,6 +80,7 @@ function playRound(playerSelection, computerSelection = computerPlay()) {
         playerScoreNumber.classList.remove("score-color");
         computerScoreHeading.classList.remove("score-color");
         computerScoreNumber.classList.remove("score-color");
+        game();
         return;
     }
 
@@ -54,7 +89,9 @@ function playRound(playerSelection, computerSelection = computerPlay()) {
                        || (playerSelection == "Scissors" && computerSelection == "Paper");
     
     if (playerWins) {
+
         ++playerScore;
+
         playerScoreNumber.innerText = `${playerScore}`
         playerScoreHeading.classList.add("score-color");
         playerScoreNumber.classList.add("score-color");
@@ -63,6 +100,7 @@ function playRound(playerSelection, computerSelection = computerPlay()) {
         computerScoreNumber.classList.remove("score-color");
 
         resultMessage.innerText = `You Win! ${playerSelection} beats ${computerSelection}!`;
+        game();
         return;
         
     } else {
@@ -72,26 +110,14 @@ function playRound(playerSelection, computerSelection = computerPlay()) {
         computerScoreNumber.innerText = `${computerScore}`;
         computerScoreHeading.classList.add("score-color");
         computerScoreNumber.classList.add("score-color");
-
       
         playerScoreHeading.classList.remove("score-color");
         playerScoreNumber.classList.remove("score-color");
 
         resultMessage.innerText = `You Lose! ${computerSelection} beats ${playerSelection}!`;
+        game();
         return;
     }
-}
-
-function game() {
-    /**let i = 1;
-   /**  while (i <= 5) { 
-        const userInput = prompt("Rock, Paper, or Scissors?");
-        console.log(playRound(userInput));**/
-        console.log("Computer: " + computerScore);
-        console.log("You: " + playerScore);
-        /**++i;**/
-    
-    return;
 }
 
 
