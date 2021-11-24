@@ -21,12 +21,12 @@ const resultMessage = document.createElement('p');
 resultMessage.setAttribute("id", "result-message");
 middle.appendChild(resultMessage);
 
+
 const playAgainButton = document.createElement('button');
 playAgainButton.setAttribute("id", "play-again-button");
 playAgainButton.innerText = ("Play Again");
 
 playAgainButton.addEventListener("click", () => gameReset());
-
 
 
 const optionsArray = ["Rock", "Paper", "Scissors"];
@@ -66,9 +66,6 @@ function game() {
 }
 
 function playRound(playerSelection, computerSelection = computerPlay()) {
-
-    
-
     if (!optionsArray.includes(playerSelection)) {
         resultMessage.innerText = "Error. You did not choose Rock, Paper, or Scissors.";
         return;
