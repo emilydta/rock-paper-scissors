@@ -15,3 +15,5 @@ Completing this project has taught me:
 - How to use JavaScript and CSS together to create a simple functioning UI.
 - How to manipulate the DOM and use DOM methods such as event listeners, creating and removing elements with JavaScript, and using query selectors.
 - How to create a functioning project from scratch which uses HTML, CSS and JavaScript.
+
+github pages: https://emilydta.github.io/rock-paper-scissors/
